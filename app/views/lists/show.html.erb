@@ -1,0 +1,27 @@
+<h1>List - <%= @list.name %></h1>
+
+
+<table class="table table-striped">
+    <tr>
+      <th>List Name</th>
+      <th>Gender</th>
+      <th>Trip To</th>
+      <th>From</th>
+      <th>To</th>
+    </tr>
+
+    <tr>
+      <td><%= @list.name %></td>
+      <td><%= @list.sex %></td>
+      <td><%= @list.location %></td>
+      <td><%= @list.start_date %></td>
+      <td><%= @list.end_date %></td>
+    </tr>
+
+  </table>
+
+  <%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>
+
+
+
