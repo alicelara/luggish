@@ -1,11 +1,16 @@
 Luggish::Application.routes.draw do
   
-  get "sessions/new"
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
 
-  get "users/new"
+ resources :users
+ resources :sessions
 
  root :to => 'pages#home'
  get 'about' => 'pages#about'
+
+
 
  
 
