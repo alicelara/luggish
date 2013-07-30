@@ -11,8 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130730003943) do
+
+  create_table "lists", :force => true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "sex"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -30,19 +40,4 @@ ActiveRecord::Schema.define(:version => 20130730003943) do
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
-=======
-ActiveRecord::Schema.define(:version => 20130729193648) do
-
-  create_table "lists", :force => true do |t|
-    t.string   "name"
-    t.string   "location"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "sex"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
->>>>>>> 4175b5387608c6651707cd193cf4f04371f3572a
 end

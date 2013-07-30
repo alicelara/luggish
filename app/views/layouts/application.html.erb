@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 	<head>
 	  <title>Luggish</title>
 	  <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -24,30 +23,18 @@
 			<% flash.each do |name, msg| %>
 			<%= content_tag :div, msg, :id => "flash_#{name}" %>
 			<% end %>
+		<div class="container">
+		<div class="alert">
+		    <% if flash[:notice] %>
+		      <p id="notice"><%= flash[:notice] %></p>
+		    <% end %>
+		    <% if flash[:alert] %>
+		      <p id="alert"><%= flash[:alert] %></p>
+		    <% end %>
+	    </div>
 			<%= yield %>
 		</div>
 		
 	</body>
-=======
-<head>
-  <title>Luggish</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div class="container">
-	  <div class="alert">
-    <% if flash[:notice] %>
-      <p id="notice"><%= flash[:notice] %></p>
-    <% end %>
-    <% if flash[:alert] %>
-      <p id="alert"><%= flash[:alert] %></p>
-    <% end %>
-    </div>
-<%= yield %>
 
-</div>
-</body>
->>>>>>> 4175b5387608c6651707cd193cf4f04371f3572a
 </html>
