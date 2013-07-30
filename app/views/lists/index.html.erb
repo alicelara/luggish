@@ -1,0 +1,31 @@
+<h1> All Lists</h1>
+
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Trip to</th>
+      <th>From</th>
+      <th>To</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @lists.each do |list| %>
+    <tr>
+      <td><%= list.name %></td>
+      <td><%= list.location %></td>
+      <td><%= list.start_date %></td>
+      <td><%= list.end_date %></td>
+      <td><%= link_to 'Show', list %></td>
+      <td><%= link_to 'Edit', edit_list_path(list) %></td>
+      <td><%= link_to 'X', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+
+<br />
+
+<%= link_to 'New List', new_list_path %>
