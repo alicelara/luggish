@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
 
   attr_accessible :email, :password, :password_confirmation
-  has_many :projects
+  has_many :lists
   
 
   validates_confirmation_of :password
