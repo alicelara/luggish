@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  before_filter :require_login
+
   def index
     @lists =  List.all
   end
@@ -41,4 +43,11 @@ class ListsController < ApplicationController
     @list.destroy
     redirect_to lists_url
   end
+
+  protected
+
+  def not_authenticated
+    redirect_to login_path, :alert => "Please login first."
+  end
+
 end
