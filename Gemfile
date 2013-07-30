@@ -1,7 +1,17 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+<<<<<<< HEAD
 gem 'jquery-rails'
+=======
+
+gem 'jquery-rails'
+
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+>>>>>>> d74f86c49945495ec585490fc55dc1575a1d4f5a
 gem 'sqlite3'
 gem 'thin'
 gem 'sorcery'
