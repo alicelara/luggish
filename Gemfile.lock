@@ -29,12 +29,8 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     arel (3.0.2)
-<<<<<<< HEAD
     bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.2.1)
-=======
-    bootstrap-sass (2.3.2.0)
->>>>>>> 4175b5387608c6651707cd193cf4f04371f3572a
       sass (~> 3.2)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -49,8 +45,8 @@ GEM
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    faraday (0.8.7)
-      multipart-post (~> 1.1)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.1)
@@ -133,11 +129,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   bootstrap-sass (~> 2.3.2.1)
-=======
-  bootstrap-sass (= 2.3.2.0)
->>>>>>> 4175b5387608c6651707cd193cf4f04371f3572a
   coffee-rails (~> 3.2.1)
   jquery-rails
   rails (= 3.2.13)

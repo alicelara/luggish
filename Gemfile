@@ -1,11 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-<<<<<<< HEAD
+
 gem 'jquery-rails'
-=======
-gem 'bootstrap-sass', '2.3.2.0'
->>>>>>> 4175b5387608c6651707cd193cf4f04371f3572a
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
