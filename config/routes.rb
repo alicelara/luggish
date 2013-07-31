@@ -1,7 +1,5 @@
 Luggish::Application.routes.draw do
   
-
-
   root :to => 'pages#home'
 
   get 'about' => 'pages#about'
@@ -9,11 +7,11 @@ Luggish::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
 
- resources :users
- resources :sessions
- resources :password_resets
- resources :lists
- resources :items, except: [:index]  
-
+  resources :users
+  resources :sessions
+  resources :password_resets
+  resources :lists do
+    resources :items, except: [:index]  
+   end
 
 end
