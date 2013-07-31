@@ -1,0 +1,13 @@
+
+<%= form_for(@list) do |f| %>
+   <% if @list.errors.any? %>
+   <div class="alert"> 
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @list.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <% end %>
