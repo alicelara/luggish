@@ -4,5 +4,9 @@ module ListsHelper
 			"active"
 			end
 		end
+
+		def set_time
+	 		Time.now.strftime("%m-%d-%Y")
+	 	end
 end
 
