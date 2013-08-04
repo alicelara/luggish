@@ -1,27 +1,56 @@
 class ItemsController < ApplicationController
+  def index
+    @items = Item.all
+  end
+
   def new
-   # @item = @list.items.build
+    @item = Item.new
   end
 
   def show
-    
+    @item = Item.find(params[:id])
   end
 
   def create
-  end
+    @item = Item.new(params[:id])
 
-  def edit
-    if @item.user_id.any?
-      redirect_to edit_list_item_path
-    else
-      flash.now.alert = "Cannot edit this item"
-      redirect_to list_path
+    respond_to do |format|
+      if @item.save
+        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.json { render json: @item, status: :created, location: @item }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  
+  end
+
   def update
+    @item = Item.find(params[:id])
+
+    respond_to do |format|
+      if @item.update_attributes(params[:item])
+        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
+    @item = Item.find(params[:id])
+    @item.delete
+
+    respond_to do |format|
+      format.html { redirect_to items_url }
+      format.json { head :no_content }
+    end
   end
 end
