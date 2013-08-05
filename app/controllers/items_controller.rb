@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(params[:id])
+    @item = Item.new(params[:item])
 
     respond_to do |format|
       if @item.save
