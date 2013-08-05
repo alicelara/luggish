@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'sqlite3'
 gem 'thin'
 gem 'sorcery'
+gem 'cocoon', :git => 'https://github.com/nathanvda/cocoon'
 
 
 

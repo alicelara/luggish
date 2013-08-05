@@ -22,8 +22,16 @@
 
   </table>
 
+  <p>Prepare to pack!</p>
+<% @list.items.each do |item| %>
+  <ul>
+ 
+      <div>item: <%= item.name %></div>
+  </ul>
+  <% end %>
+
   <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
-
+ </div>
 
 
