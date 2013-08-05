@@ -7,7 +7,7 @@ class ListsController < ApplicationController
   def index
     @lists = current_user.lists.order('lists.created_at DESC').all
   end
-
+  
   def new
     @list = current_user.lists.build
   end
