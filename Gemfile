@@ -8,7 +8,6 @@ gem 'sorcery'
 gem 'cocoon', :git => 'https://github.com/nathanvda/cocoon'
 
 
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -16,7 +15,24 @@ group :assets do
   gem 'bootstrap-sass', '~> 2.3.2.1'
 end
 
+group :development, :test do
 
+	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'factory_girl_rails'
+	gem 'pry-rails'
+	gem 'pry'
+	gem 'pry-remote'
+	gem 'pry-stack_explorer'
+	gem 'pry-debugger'
+	# gem "spork-rails"
+end
+
+group :development do
+  gem "better_errors"
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
