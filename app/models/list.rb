@@ -15,4 +15,5 @@ attr_accessible :name, :location, :sex, :start_date, :end_date, :items_attribute
   	self.start_date = Date.strptime(startDate, '%m/%d/%Y')
     self.end_date =Date.strptime(endDate, '%m/%d/%Y')
   end
+
 end

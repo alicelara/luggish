@@ -17,19 +17,27 @@ class ListsController < ApplicationController
   end
 
   def edit
+    # binding.pry
+    @list = current_user.lists.find params[:id]
+
   end
 
   def update
+      @list = current_user.lists.find params[:id]
+      startDate = params[:list][:start_date]
+      endDate = params[:list][:end_date]
     if @list.update_attributes params[:list]
+      @list.convertDate(startDate,endDate)
+      @list.save
       redirect_to [:lists], notice: "list updated!"
     else
+
       render :edit
     end
   end
 
   def create
     # binding.pry
-    
     @list = current_user.lists.build params[:list]
     startDate = params[:list][:start_date]
     endDate = params[:list][:end_date]
