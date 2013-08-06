@@ -12,6 +12,10 @@ class ListsController < ApplicationController
     @list = current_user.lists.build
   end
 
+  def show
+    
+  end
+
   def edit
   end
 
@@ -24,7 +28,14 @@ class ListsController < ApplicationController
   end
 
   def create
+    # binding.pry
+    
     @list = current_user.lists.build params[:list]
+    startDate = params[:list][:start_date]
+    endDate = params[:list][:end_date]
+    @list.convertDate(startDate,endDate)
+    
+        
     if @list.save
       redirect_to [:lists], notice: "list created!"
     else

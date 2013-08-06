@@ -10,6 +10,7 @@ Luggish::Application.routes.draw do
   resources :users
   resources :sessions
   resources :password_resets
+  
   resources :lists do
     resources :items, except: [:index]  
    end

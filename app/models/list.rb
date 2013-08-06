@@ -11,5 +11,8 @@ attr_accessible :name, :location, :sex, :start_date, :end_date, :items_attribute
 
   accepts_nested_attributes_for :items, :reject_if => :all_blank, :allow_destroy =>true
 
-  
+  def convertDate(startDate,endDate)
+  	self.start_date = Date.strptime(startDate, '%m/%d/%Y')
+    self.end_date =Date.strptime(endDate, '%m/%d/%Y')
+  end
 end
