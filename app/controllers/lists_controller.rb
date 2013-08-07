@@ -7,24 +7,44 @@ class ListsController < ApplicationController
   def index
     @lists = current_user.lists.order('lists.created_at DESC').all
   end
-  
-  def new
-    @list = current_user.lists.build()
-    # populated items (seeded)
-    items = Item.where(:user_id => nil)
-    # custom items
-    items += current_user.items
-  
-    items.each do |item|
-      name = item.name
-    
-      @list.item_lists.build(:name => name, :quantity => 1)
-    end
-  end
 
   def show
     
   end
+  
+  def new
+    @list = current_user.lists.build()
+
+    # populated items (seeded)
+    items = Item.where(:user_id => nil)
+
+    # custom items
+    items += current_user.items
+  # binding.pry
+    items.each do |item|
+      name = item.name
+    
+      @list.item_lists.build(:name => name, :item => item, :quantity => 1)
+    end
+  end
+  
+  def create
+    # binding.pry
+    
+    @list = current_user.lists.build params[:list]
+    startDate = params[:list][:start_date]
+    endDate = params[:list][:end_date]
+    @list.convertDate(startDate,endDate)
+    
+    # binding.pry
+        
+    if @list.save
+      redirect_to "/lists/#{@list.id}", notice: "list created!"
+    else
+      render :new
+    end
+  end
+
 
   def edit
     # binding.pry
@@ -46,22 +66,6 @@ class ListsController < ApplicationController
     end
   end
 
-  def create
-    # binding.pry
-    
-    @list = current_user.lists.build params[:list]
-    startDate = params[:list][:start_date]
-    endDate = params[:list][:end_date]
-    @list.convertDate(startDate,endDate)
-    
-    # binding.pry
-        
-    if @list.save
-      redirect_to [:lists], notice: "list created!"
-    else
-      render :new
-    end
-  end
 
   def destroy
     @list.destroy

@@ -32,10 +32,18 @@
   </div>
   <!-- nested form to include items -->
     <div>
-      <h3>Items</h3>
+      <h3>Suggested Items</h3>
      <div id="items">
         <%= f.fields_for :item_lists do |item| %>
           <%= render 'item_list_fields', :f => item %>
+          <br>
+          <br>
+        <% end %>
+      </div>
+      <h3>My items</h3
+           <div id="items">
+        <%= f.fields_for :item_lists do |item| %>
+          <%= render 'cust_item_list_fields', :f => item %>
           <br>
           <br>
         <% end %>

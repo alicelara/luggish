@@ -4,13 +4,8 @@
 		<%= f.number_field :quantity, in: 1...99, :class => "qty_size" %>
 	</div>
 	<div class="field" style="display: inline-block;">
-		<% if f.object.is_system_item? %>
 		<%= f.label :name %>
-		<div class="item_name"><%= f.object.name %></div>
-			<%= f.hidden_field :name %>
-			<% else %>
-			<%= f.text_field :name %>
-			<% end %>
+		<%= f.text_field :name %>
 		</div>
 	<div class="field" style="display: inline-block;">
 		<%= f.label :note %>
