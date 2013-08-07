@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  attr_accessible :email, :password, :password_confirmation, :admin, :items
 
-  attr_accessible :email, :password, :password_confirmation, :admin
   has_many :lists
+  has_many :items
   
 
   validates_confirmation_of :password

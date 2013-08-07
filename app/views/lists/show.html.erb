@@ -27,6 +27,11 @@
   <ul>
  
       <div>item: <%= item.name %></div>
+      <% @list.item_lists.each do |il| %>
+       <div>qty: <%= il.quantity %></div>
+       <div>notes: <%= il.note %></div>
+       <% end %>
+
   </ul>
   <% end %>
 

@@ -1,5 +1,5 @@
 class List < ActiveRecord::Base
-attr_accessible :name, :location, :sex, :start_date, :end_date, :items_attributes
+attr_accessible :name, :location, :sex, :start_date, :end_date, :item_lists, :item_lists_attributes
 
   belongs_to :user
   has_many :item_lists
@@ -9,7 +9,8 @@ attr_accessible :name, :location, :sex, :start_date, :end_date, :items_attribute
   validates :location, presence: true, length: {maximum: 255}
   validates :sex, presence: true
 
-  accepts_nested_attributes_for :items, :reject_if => :all_blank, :allow_destroy =>true
+  accepts_nested_attributes_for :item_lists, :reject_if => :all_blank, :allow_destroy =>true
+ # accepts_nested_attributes_for :item_lists
 
   def convertDate(startDate,endDate)
   	self.start_date = Date.strptime(startDate, '%m/%d/%Y')
@@ -17,3 +18,4 @@ attr_accessible :name, :location, :sex, :start_date, :end_date, :items_attribute
   end
 
 end
+  

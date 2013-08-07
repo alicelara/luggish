@@ -9,7 +9,17 @@ class ListsController < ApplicationController
   end
   
   def new
-    @list = current_user.lists.build
+    @list = current_user.lists.build()
+    # populated items (seeded)
+    items = Item.where(:user_id => nil)
+    # custom items
+    items += current_user.items
+  
+    items.each do |item|
+      name = item.name
+    
+      @list.item_lists.build(:name => name, :quantity => 1)
+    end
   end
 
   def show
@@ -38,11 +48,13 @@ class ListsController < ApplicationController
 
   def create
     # binding.pry
+    
     @list = current_user.lists.build params[:list]
     startDate = params[:list][:start_date]
     endDate = params[:list][:end_date]
     @list.convertDate(startDate,endDate)
     
+    # binding.pry
         
     if @list.save
       redirect_to [:lists], notice: "list created!"

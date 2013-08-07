@@ -3,7 +3,7 @@
 		<%= f.label :name %><br>
 		<%= f.text_field :name %>
 	</div>
-
-	<%= link_to_remove_association "remove item", f %>	</div>
-
+	<div class="field">
+		<%= f.hidden_field :category_id, :value => 10 %>
+	</div>
 </div>

@@ -32,14 +32,14 @@
   </div>
   <!-- nested form to include items -->
     <div>
-      <h3>Items</h3>
+      <h3>My Items</h3>
       <div id="items">
-        <%= f.fields_for :items do |item| %>
-          <%= render 'item_fields', :f =>item %>
+        <%= f.fields_for :item_lists do |item| %>
+          <%= render 'item_list_fields', :f => item %>
         <% end %>
       </div>
       <div class="links">
-        <%= link_to_add_association 'add item', f, :items %>  
+        <%= link_to_add_association 'add my item', f, :item_lists %>  
       </div>
     </div>
       <div class="actions" style="clear:both">

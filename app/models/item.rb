@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :category_id, :name, :user_id
+  attr_accessible :category_id, :name, :user_id, :item_lists_attributes
 
   belongs_to :user
   belongs_to :category
@@ -9,4 +9,7 @@ class Item < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => true
   validates :category_id, :presence => true
+
+   accepts_nested_attributes_for :item_lists, :reject_if => :all_blank
+
 end
