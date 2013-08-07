@@ -1,14 +1,14 @@
 <div class="nested-fields">
-	<div class="field">
-		<%= f.label :notes %><br>
-		<%= f.text_field :note %>
+	<div class="field" style="display: inline-block;">
+		<%= f.label :name %>
+		<%= f.text_field :name %>
 	</div>
-
-<div class="field">
-		<%= f.label :qty %><br>
+	<div class="field"  style="display: inline-block;">
+		<%= f.label :quantity, "Qty" %>
 		<%= f.number_field :quantity %>
 	</div>
-
-	<%= link_to_remove_association "remove info", f %>	</div>
-
+	<div class="field" style="display: inline-block;">
+		<%= f.label :note %>
+		<%= f.text_field :note %>
+	</div>
 </div>

@@ -3,20 +3,7 @@
 		<%= f.label :name %><br>
 		<%= f.text_field :name %>
 	</div>
-		<div class="field">
-		
+	<div class="field">
 		<%= f.hidden_field :category_id, :value => 10 %>
 	</div>
- <!-- nested form to include notes/qty -->
-    <div>
-      <div id="item_lists">
-        <%= f.fields_for :item_lists do |item_list| %>
-          <%= render 'item_list_fields', :f =>item_list %>
-        <% end %>
-      </div>
-      <div class="links">
-        <%= link_to_add_association 'add qty and note', f, :item_lists %>  
-      </div>
-	<%= link_to_remove_association "remove item", f %>	</div>
-
 </div>
