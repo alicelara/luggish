@@ -23,17 +23,17 @@
   </table>
 
   <p>Prepare to pack!</p>
-<% @list.items.each do |item| %>
+<% @list.item_lists.each do |il| %>
   <ul>
  
-      <div>item: <%= item.name %></div>
-      <% @list.item_lists.each do |il| %>
+      <div>item: <%= il.name %></div>
        <div>qty: <%= il.quantity %></div>
        <div>notes: <%= il.note %></div>
-       <% end %>
+       
 
   </ul>
   <% end %>
+  
 
   <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
