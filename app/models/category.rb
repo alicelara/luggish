@@ -4,9 +4,8 @@ class Category < ActiveRecord::Base
   has_many :items
 
 
-
-  def self.findAllItems(categoryName)
-  	# binding.pry
+    def self.findAllItems(categoryName)
+    # binding.pry
  	categoryId = Category.find_by_name(categoryName).id
  	items = []
  	Item.all.each do |i|
@@ -17,7 +16,6 @@ class Category < ActiveRecord::Base
   	end
   	return items
   end
-
 
   def self.findItems
   	allItems = Hash.new
@@ -32,6 +30,4 @@ class Category < ActiveRecord::Base
   
   end
 
-
-  
 end

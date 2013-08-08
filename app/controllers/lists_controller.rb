@@ -10,6 +10,8 @@ class ListsController < ApplicationController
 
   def show
     
+# @itemsCat = Category.findItems
+
   end
   
   def new
