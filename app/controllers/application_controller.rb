@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-before_filter :itemCategory
+# before_filter :itemCategory
 def ensure_logged_in
   	unless current_user
   		flash[:alert] = "Please log in"
@@ -15,9 +15,9 @@ def ensure_logged_in
 
   helper_method :current_user
 
-  def itemCategory
+  # def itemCategory
     
-    @itemsCat = Category.findItems
+  #   @itemsCat = Category.findItems
 
-  end
+  # end
 end

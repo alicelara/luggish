@@ -2,7 +2,7 @@ class List < ActiveRecord::Base
 attr_accessible :name, :location, :sex, :start_date, :end_date, :item_lists, :item_lists_attributes
 
   belongs_to :user
-  has_many :item_lists
+  has_many :item_lists, :dependent => :destroy
   has_many :items, through: :item_lists
 	
   validates :name, presence: true, length: {maximum: 100}
