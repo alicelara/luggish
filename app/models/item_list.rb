@@ -18,9 +18,6 @@ class ItemList < ActiveRecord::Base
 		!is_system_item?	
 	end
 
-	if item.category.name == 'Toiletries'
-	end
-
 	# accepts_nested_attributes_for :item, :reject_if => :all_blank
 
 	def name=(name)
