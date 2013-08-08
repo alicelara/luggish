@@ -38,9 +38,9 @@
        </tr>
       <% end %>
     </table>
-  
-  <% @itemsCat["Shoes"].each do |s| %>
-  <%= s %>
+  <h5> Shoes</h5>
+  <% @itemsCat["Shoes"].each do |item_name| %>
+  <%= item_name %><br>
   <% end %>
 
   <%= link_to 'Edit', edit_list_path(@list) %> |

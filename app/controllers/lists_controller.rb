@@ -18,16 +18,27 @@ class ListsController < ApplicationController
     @list = current_user.lists.build()
 
     # populated items (seeded)
-    items = Item.where(:user_id => nil)
+    items = Item.includes(:category).where(:user_id => nil)
 
     # custom items
     items += current_user.items
   # binding.pry
+
+    @groupedItems = {}
+
     items.each do |item|
       name = item.name
     
-      @list.item_lists.build(:name => name, :item => item, :quantity => 1)
+      item_list = @list.item_lists.build(:name => name, :item => item, :quantity => 1)
+      
+      if @groupedItems[item.category.name]
+        @groupedItems[item.category.name] << item_list
+      else
+        @groupedItems[item.category.name] = [item_list]
+      end
     end
+
+    # @groupedItems = @list.item_lists.includes(:item => :category).group_by{|il| il.item.category.name }
   end
   
   def create

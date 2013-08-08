@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :admin, :items
 
-  has_many :lists
+  has_many :lists, :dependent => :destroy
   has_many :items
   
 

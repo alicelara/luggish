@@ -34,8 +34,8 @@
     <div>
       <h3>Suggested Items</h3>
      <div id="items">
-        <%= f.fields_for :item_lists do |item| %>
-          <%= render 'item_list_fields', :f => item %>
+        <%= f.fields_for :item_lists do %>
+          <%= render 'item_list_fields', :f => @groupedItems %>
         <% end %>
       </div>
    <h3>My Items</h3>
