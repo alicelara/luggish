@@ -23,7 +23,7 @@ class ListsController < ApplicationController
   # binding.pry
     items.each do |item|
       name = item.name
-    
+      
       @list.item_lists.build(:name => name, :item => item, :quantity => 1)
     end
   end
@@ -70,6 +70,9 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     redirect_to [:lists], notice: "list deleted"
+  end
+
+  def category
   end
 
   protected

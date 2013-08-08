@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/nathanvda/cocoon
-  revision: 7a402fdfb1ca910e3a05da5069f89e252e589cc2
+  revision: 23d98da2f5c2237a109a9a05a58fa5502d0bf2ff
   specs:
     cocoon (1.2.0)
 
@@ -93,7 +93,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_request (0.2.7)
+    meta_request (0.2.8)
       callsite
       rack-contrib
       railties
