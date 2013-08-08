@@ -25,9 +25,7 @@ end
 
 
 
-
-Item.create(:name => 'Toothbrush', :category_id => categories_hash['Toiletries'].id)       
-Item.create(:name => 'Toothbrush', :category_id => 89)       
+    
 
 Item.create(:name => 'Toothbrush', :category_id => categories_hash['Toiletries'].id)       
 Item.create(:name => 'Toothpaste',:category_id => categories_hash['Toiletries'].id)
