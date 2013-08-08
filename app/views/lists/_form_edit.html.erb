@@ -23,7 +23,7 @@
   <div style="clear:both"></div>
   </div><br>
   <div class="field">          
-    <%= f.label :start_date, :class => "span2"%>
+    <%= f.label :start_date, :class => "span2" %>
     <%= f.text_field :start_date,:id =>"dpd1" %>
   </div><br>
   <div class="field">          
@@ -40,24 +40,14 @@
           <br>
         <% end %>
       </div>
-      <h3>My items</h3
-           <div id="items">
-        <%= f.fields_for :item_lists do |item| %>
-          <%= render 'cust_item_list_fields', :f => item %>
-          <br>
-          <br>
-        <% end %>
-      </div>
+   <h3>My Items</h3>
       <div class="links">
         <%= link_to_add_association 'add my item', f, :item_lists %>  
       </div>
     </div>
-     
       <div class="actions" style="clear:both">
         <%= f.submit %>
      </div>
 
 <% end %>
  </div>
-
-
