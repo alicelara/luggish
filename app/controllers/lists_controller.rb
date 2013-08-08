@@ -54,10 +54,9 @@ class ListsController < ApplicationController
 
   def update
       @list = current_user.lists.find params[:id]
-      startDate = params[:list][:start_date]
-      endDate = params[:list][:end_date]
+
     if @list.update_attributes params[:list]
-      @list.convertDate(startDate,endDate)
+ 
       @list.save
       redirect_to [:lists], notice: "list updated!"
     else
