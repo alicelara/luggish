@@ -2,11 +2,11 @@
   <div class="well">
     <div class="field">
       <%= f.label :list_name, :class => "span2" %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :placeholder => "Name your list", :class => "text_fields" %>
     </div>
     <div class="field">
       <%= f.label :going_to, :class => "span2" %>
-      <%= f.text_field :location %>
+      <%= f.text_field :location, :placeholder => "Where are you going?", :class => "text_fields" %>
     </div>
 
     <div style="float:left; width:200px">
@@ -40,16 +40,16 @@
 
       <div id="tabs">      
         <ul>
-         <li><a href="#tabs-1">Toiletries</a></li>
-         <li><a href="#tabs-2">Clothes</a></li>
-         <li><a href="#tabs-3">Shoes</a></li>
-         <li><a href="#tabs-4">Gadgets</a></li>
-         <li><a href="#tabs-5">Weather Related</a></li>
-         <li><a href="#tabs-6">Travel Aids</a></li>
-         <li><a href="#tabs-7">Documents & Ids</a></li>
-         <li><a href="#tabs-8">Miscellaneous</a></li>
-         <li><a href="#tabs-9">Luggage</a></li>
-         <li><a href="#tabs-10">My Items</a></li>
+         <li><a href="#tabs-1"><%= image_tag "toiletries.jpg", :class => "icons" %></a></li>
+         <li><a href="#tabs-2"><%= image_tag "clothes.jpg", :class => "icons" %></a></li>
+         <li><a href="#tabs-3"><%= image_tag "shoes.jpg", :class => "icons" %></a></li>
+         <li><a href="#tabs-4"><%= image_tag "gadgets.jpg", :class => "icons" %></a></li>
+         <li><a href="#tabs-5"><%= image_tag "weather.jpg", :class => "icons" %></a></li>
+         <li><a href="#tabs-6"><%= image_tag "travel-aid.jpg", :class => "icons" %></a></li>
+         <li><a href="#tabs-7"><%= image_tag "docs.jpg", :class => "icons" %></a></li>
+         <li><a href="#tabs-8"><%= image_tag "misc.jpg", :class => "icons" %></a></li>
+         <li><a href="#tabs-9"><%= image_tag "luggage.jpg", :class => "icons" %></a></li>
+         <li><a href="#tabs-10"><%= image_tag "my-items.jpg", :class => "icons" %></a></li>
         </ul>
         <% @groupedItems.each do |category, item_lists| %>
           <div id="tabs-<%= j = j+1 %>">
@@ -62,14 +62,14 @@
         <% end %>
       </div>
 
-      <h3>My Items</h3>
+      <h3>Add more items</h3>
       <div class="links">
         <%= link_to_add_association 'add my item', f, :item_lists %>  
       </div>
     </div>
 
     <div class="actions" style="clear:both">
-      <%= f.submit %>
+      <%= f.submit %></div>
     </div>
   </div>
 <% end %>
