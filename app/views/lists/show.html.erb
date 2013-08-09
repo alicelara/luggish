@@ -3,30 +3,22 @@
 <%= link_to 'Back', lists_path %>
 
 <h1>List - <%= @list.name %></h1>
+<div style="margin-bottom: 20px; ">
+    <% if @list.sex == "male" %>
+    <%= image_tag "male.jpg" %>
+    <% else %>
+    <%= image_tag "female.jpg" %>
+    <% end %> 
+</div>
+<div >
+  <div>Going to - <%= @list.location %></div>
+  <div>From - <%= @list.start_date %></div>
+  <div>To - <%= @list.end_date %></div>
 
+</div>
 
-<table class="table table-striped">
-  <tr>
-    <th>List Name</th>
-    <th>Gender</th>
-    <th>Trip To</th>
-    <th>From</th>
-    <th>To</th>
-  </tr>
+<h3>Prepare to pack!</h3>
 
-  <tr>
-    <td><%= @list.name %></td>
-    <td><%= @list.sex %></td>
-    <td><%= @list.location %></td>
-    <td><%= @list.start_date %></td>
-    <td><%= @list.end_date %></td>
-  </tr>
-
-</table>
-
-<p>Prepare to pack!</p>
-
-<h3>Suggested Items</h3>
   <div id="items">
     <% i = 0 %>
     <% j = 0 %>
