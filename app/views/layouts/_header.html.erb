@@ -13,7 +13,7 @@
       <%= image_tag "luggish-logo.png", :class => 'brand' %>
  
       <!-- Everything you want hidden at 940px or less, place within here -->
-      <div class="nav-collapse collapse">
+      <div class="nav-collapse collapse" style="margin-top: 30px;">
 	      <ul class="nav">
 
 	   			<li class="<%= 'active' if (current_page? root_path) %>">
@@ -25,12 +25,18 @@
           <li class="<%= yield :active %>">
           <%= link_to "Lists", lists_path %>
           </li>
-
-				</ul>
-				<ul class="nav pull-right">
-	   			<li><%= link_to "Login", '#' %> </li>
+     </ul>
+        <ul class="nav pull-right">
+        <% if current_user %>
+         <li> <%= link_to "Log out", logout_path %></li>
+        <% else %>
+           
+          <li><%= link_to "Sign up", signup_path %></li>
+          <li><%= link_to "Login", login_path %> </li>
+        <% end %>
+        </ul>
 			
-				</ul>
+		
       </div>
  
     </div>
