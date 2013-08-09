@@ -56,7 +56,9 @@
          <li><a href="#tabs-10"><%= image_tag "my-items.jpg", :class => "icons" %></a></li>
         </ul>
         <% @groupedItems.each do |category, item_lists| %>
+
           <div id="tabs-<%= j = j+1 %>">
+            <h2><%= category.to_s.upcase %></h2>
             <%= f.fields_for :item_lists, item_lists do |item_form| %>
             
               <%= render 'item_list_fields', :f => item_form %>
