@@ -20,8 +20,10 @@ class ListsController < ApplicationController
   
   def new
     @list = current_user.lists.build()
+
     create_items_list(@list)
     # @groupedItems = @list.item_lists.includes(:item => :category).group_by{|il| il.item.category.name }
+
   end
 
   
@@ -70,6 +72,9 @@ class ListsController < ApplicationController
   def destroy
     @list.destroy
     redirect_to [:lists], notice: "list deleted"
+  end
+
+  def category
   end
 
   protected

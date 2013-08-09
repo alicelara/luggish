@@ -1,6 +1,8 @@
 GIT
   remote: https://github.com/nathanvda/cocoon
+
   revision: 0b23d44102d107261a5b0f86836546b313037ed0
+
   specs:
     cocoon (1.2.0)
 
