@@ -43,12 +43,6 @@ class ListsController < ApplicationController
       end
     end
    
-   @count = @groupedItems.size
-   @i = 0
-   while @i < @count
-    @i += 1
-    puts @i
-  end
     
     # @groupedItems = @list.item_lists.includes(:item => :category).group_by{|il| il.item.category.name }
   end

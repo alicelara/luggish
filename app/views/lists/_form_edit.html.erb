@@ -1,5 +1,6 @@
 <%= form_for(@list) do |f| %>
   <div class="well">
+    <div style="float:left;">
     <div class="field">
       <%= f.label :list_name, :class => "span2" %>
       <%= f.text_field :name, :placeholder => "Name your list", :class => "text_fields" %>
@@ -13,12 +14,14 @@
       <span class="span2">
         <%= f.radio_button :sex, "male" %>
         <%= f.label :sex, "male", :value => "male" %>
+        <%= image_tag "male.jpg" %>
       </span>
     </div>
     <div>
       <span class="span2">
         <%= f.radio_button :sex, "female" %>
         <%= f.label :sex, "female", :value => "female" %>
+        <%= image_tag "female.jpg" %>
       </span>
     <div style="clear:both"></div>
     </div><br>
@@ -28,10 +31,11 @@
     </div><br>
     <div class="field">          
       <%= f.label :end_date, :class => "span2"%>
-      <%= f.text_field :end_date,  :id =>"dpd2" %>
+      <%= f.text_field :end_date, :id =>"dpd2" %>
     </div>
+  </div>
     <!-- nested form to include items -->
-    <div>
+    <div style="float:left;">
 
       <h3>Suggested Items</h3>
       <div id="items">
