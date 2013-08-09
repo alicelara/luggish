@@ -1,23 +1,23 @@
 <div class="nested-fields">
-	<div class="field"  style="display: inline-block;">
-		<%= f.label :quantity, "Qty" %>
-		<%= f.number_field :quantity, in: 1...99, :class => "qty_size" %>
-	</div>
-	
-	<div class="field" style="display: inline-block;">
-		<% if f.object.is_system_item? %>
-			<%= f.label :name %>
-			<div class="item_name"><%= f.object.name %></div>
-			<%= f.hidden_field :name %>
-		<% else %>
-			<%= f.text_field :name %>
-		<% end %>
-	</div>
+		<div class="field"  style="display: inline-block;">
+			<%= f.label :quantity, "Qty" %>
+			<%= f.number_field :quantity, in: 1...99, :class => "qty_size" %>
+		</div>
+		
+		<div class="field" style="display: inline-block;">
+			<% if f.object.is_system_item? %>
+				<%= f.label :name %>
+				<div class="item_name"><%= f.object.name %></div>
+				<%= f.hidden_field :name %>
+			<% else %>
+				<%= f.text_field :name %>
+			<% end %>
+		</div>
 
-	<div class="field" style="display: inline-block;">
-		<%= f.label :note %>
-		<%= f.text_field :note %>
-	</div>
+		<div class="field" style="display: inline-block;">
+			<%= f.label :note %>
+			<%= f.text_field :note %>
+		</div>
 
-	<%= link_to_remove_association "remove item", f %>
-</div>
+		<%= link_to_remove_association "remove item", f %>
+	</div>

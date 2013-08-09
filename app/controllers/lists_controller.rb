@@ -10,7 +10,10 @@ class ListsController < ApplicationController
 
   def show
     
-# @itemsCat = Category.findItems
+    @list = current_user.lists.find params[:id]
+
+    # populated items (seeded)
+    
 
   end
   
@@ -23,6 +26,8 @@ class ListsController < ApplicationController
     # custom items
     items += current_user.items
   # binding.pry
+
+ 
 
     @groupedItems = {}
 
@@ -37,7 +42,14 @@ class ListsController < ApplicationController
         @groupedItems[item.category.name] = [item_list]
       end
     end
-
+   
+   @count = @groupedItems.size
+   @i = 0
+   while @i < @count
+    @i += 1
+    puts @i
+  end
+    
     # @groupedItems = @list.item_lists.includes(:item => :category).group_by{|il| il.item.category.name }
   end
   
@@ -62,6 +74,26 @@ class ListsController < ApplicationController
   def edit
     # binding.pry
     @list = current_user.lists.find params[:id]
+    # populated items (seeded)
+    items = Item.includes(:category).where(:user_id => nil)
+
+    # custom items
+    items += current_user.items
+  # binding.pry
+
+    @groupedItems = {}
+
+    items.each do |item|
+      name = item.name
+    
+      item_list = @list.item_lists.find params[:id]
+      
+      if @groupedItems[item.category.name]
+        @groupedItems[item.category.name] << item_list
+      else
+        @groupedItems[item.category.name] = [item_list]
+      end
+    end
 
   end
 

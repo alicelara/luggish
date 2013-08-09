@@ -1,4 +1,6 @@
 <% set_active %>
+  <%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>
 
 <h1>List - <%= @list.name %></h1>
 
@@ -31,20 +33,17 @@
     </tr>
       <% @list.item_lists.each do |il| %>
       <tr>
-                <td><%= il.quantity %></td>
+        <td><%= il.quantity %></td>
         <td><%= il.name %></td>
 
         <td><%= il.note %></td>
        </tr>
+       
       <% end %>
     </table>
-  <h5> Shoes</h5>
-  <% @itemsCat["Shoes"].each do |item_name| %>
-  <%= item_name %><br>
-  <% end %>
 
-  <%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+
+
  </div>
 
 

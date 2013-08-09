@@ -1,16 +1,23 @@
 @import 'bootstrap';
+@import 'bootstrap-responsive';
 
 $navbarBackgroundHighlight: white;
 $navbarBackground: #F06624;
 
 body {
 	padding-top: 60px;
+	font-size: 18.15px;
+  line-height: 1.6;
+	font-family: 'proxima_nova_rgregular';
+	color: #777777;
 }
-@import 'bootstrap-responsive';
-
+.navbar .brand {
+	width: 200px;
+}
 .qty_size{
 	width:50px;
 }
 .item_name{
 	width: 220px;
 }
+

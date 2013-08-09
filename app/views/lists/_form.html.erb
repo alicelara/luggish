@@ -32,13 +32,31 @@
     </div>
     <!-- nested form to include items -->
     <div>
+
       <h3>Suggested Items</h3>
       <div id="items">
+           <% i = 0 %>
+             <% j = 0 %>
+
+      <div id="tabs">      
+        <ul>
+         <li><a href="#tabs-1">Toiletries</a></li>
+         <li><a href="#tabs-2">Clothes</a></li>
+         <li><a href="#tabs-3">Shoes</a></li>
+         <li><a href="#tabs-4">Gadgets</a></li>
+         <li><a href="#tabs-5">Weather Related</a></li>
+         <li><a href="#tabs-6">Travel Aids</a></li>
+         <li><a href="#tabs-7">Documents & Ids</a></li>
+         <li><a href="#tabs-8">Miscellaneous</a></li>
+         <li><a href="#tabs-9">Luggage</a></li>
+         <li><a href="#tabs-10">My Items</a></li>
+        </ul>
         <% @groupedItems.each do |category, item_lists| %>
-          <div class="list-item-category" style="margin-bottom: 1.5em; border-top: 1px solid #333;">
-            <h2><%= category.to_s %></h2>
+          <div id="tabs-<%= j = j+1 %>">
             <%= f.fields_for :item_lists, item_lists do |item_form| %>
+            
               <%= render 'item_list_fields', :f => item_form %>
+              
             <% end %>
           </div>
         <% end %>
