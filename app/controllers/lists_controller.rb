@@ -11,6 +11,7 @@ class ListsController < ApplicationController
   def show
     
     @list = current_user.lists.find params[:id]
+    create_items_list(@list)
 
     # populated items (seeded)
     
@@ -20,32 +21,11 @@ class ListsController < ApplicationController
   def new
     @list = current_user.lists.build()
 
-    # populated items (seeded)
-    items = Item.includes(:category).where(:user_id => nil)
-
-    # custom items
-    items += current_user.items
-  # binding.pry
-
- 
-
-    @groupedItems = {}
-
-    items.each do |item|
-      name = item.name
-    
-      item_list = @list.item_lists.build(:name => name, :item => item, :quantity => 1)
-      
-      if @groupedItems[item.category.name]
-        @groupedItems[item.category.name] << item_list
-      else
-        @groupedItems[item.category.name] = [item_list]
-      end
-    end
-   
-    
+    create_items_list(@list)
     # @groupedItems = @list.item_lists.includes(:item => :category).group_by{|il| il.item.category.name }
+
   end
+
   
   def create
     # binding.pry
@@ -60,7 +40,9 @@ class ListsController < ApplicationController
     if @list.save
       redirect_to "/lists/#{@list.id}", notice: "list created!"
     else
+      create_items_list(@list)
       render :new
+
     end
   end
 
@@ -69,25 +51,7 @@ class ListsController < ApplicationController
     # binding.pry
     @list = current_user.lists.find params[:id]
     # populated items (seeded)
-    items = Item.includes(:category).where(:user_id => nil)
-
-    # custom items
-    items += current_user.items
-  # binding.pry
-
-    @groupedItems = {}
-
-    items.each do |item|
-      name = item.name
-    
-      item_list = @list.item_lists.find params[:id]
-      
-      if @groupedItems[item.category.name]
-        @groupedItems[item.category.name] << item_list
-      else
-        @groupedItems[item.category.name] = [item_list]
-      end
-    end
+    create_items_list(@list)
 
   end
 
@@ -110,7 +74,45 @@ class ListsController < ApplicationController
     redirect_to [:lists], notice: "list deleted"
   end
 
+  def category
+  end
+
   protected
+  def create_items_list(list)
+    # populated items (seeded)
+    items = Item.includes(:category).where(:user_id => nil)
+
+    # custom items
+    items += current_user.items if current_user
+  # binding.pry
+
+ 
+
+    @groupedItems = {}
+
+    if list.item_lists.any? 
+      list.item_lists.each do |item_list| 
+        item = item_list.item
+        if @groupedItems[item.category.name]
+          @groupedItems[item.category.name] << item_list
+        else
+          @groupedItems[item.category.name] = [item_list]
+        end
+      end
+    else
+      items.each do |item|
+        name = item.name
+      
+        item_list = @list.item_lists.build(:name => name, :item => item, :quantity => 1)
+        
+        if @groupedItems[item.category.name]
+          @groupedItems[item.category.name] << item_list
+        else
+          @groupedItems[item.category.name] = [item_list]
+        end
+      end
+    end  
+  end
 
   def not_authenticated
     redirect_to login_path, :alert => "Please login first."
