@@ -32,3 +32,12 @@ body {
 .container-space-top{
 	margin-top: 80px;
 }
+
+img a:hover{
+	background-color: #fff;
+	opacity: 0.7px;
+}
+
+input[type=radio]:checked + label {
+border: 1px solid blue;
+}

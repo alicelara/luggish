@@ -12,16 +12,18 @@
 
     <div style="float:left; width:200px">
       <span class="span2">
-        <%= f.radio_button :sex, "male" %>
-        <%= f.label :sex, "male", :value => "male" %>
-        <%= image_tag "male.jpg" %>
+        <%= f.radio_button :sex, "male", :style => "display: none;" %>
+        <%= f.label :sex, "male", value: "male" do %>
+          <%= image_tag "male.jpg" %>
+        <% end %>
       </span>
     </div>
     <div>
       <span class="span2">
-        <%= f.radio_button :sex, "female" %>
-        <%= f.label :sex, "female", :value => "female" %>
-        <%= image_tag "female.jpg" %>
+        <%= f.radio_button :sex, "female", :style => "display: none;" %>
+        <%= f.label :sex, "female", value: "female" do %>
+          <%= image_tag "female.jpg" %>
+        <% end %>
       </span>
     <div style="clear:both"></div>
     </div><br>
@@ -56,7 +58,9 @@
          <li><a href="#tabs-10"><%= image_tag "my-items.jpg", :class => "icons" %></a></li>
         </ul>
         <% @groupedItems.each do |category, item_lists| %>
+
           <div id="tabs-<%= j = j+1 %>">
+            <h3><%= category.to_s.upcase %></h3>
             <%= f.fields_for :item_lists, item_lists do |item_form| %>
             
               <%= render 'item_list_fields', :f => item_form %>

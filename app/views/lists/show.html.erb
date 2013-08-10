@@ -3,46 +3,53 @@
 <%= link_to 'Back', lists_path %>
 
 <h1>List - <%= @list.name %></h1>
+<div style="margin-bottom: 20px; ">
+    <% if @list.sex == "male" %>
+    <%= image_tag "male.jpg" %>
+    <% else %>
+    <%= image_tag "female.jpg" %>
+    <% end %> 
+</div>
+<div >
+  <div>Going to - <%= @list.location %></div>
+  <div>From - <%= @list.start_date %></div>
+  <div>To - <%= @list.end_date %></div>
 
+</div>
 
-<table class="table table-striped">
-    <tr>
-      <th>List Name</th>
-      <th>Gender</th>
-      <th>Trip To</th>
-      <th>From</th>
-      <th>To</th>
-    </tr>
+<h3>Prepare to pack!</h3>
 
-    <tr>
-      <td><%= @list.name %></td>
-      <td><%= @list.sex %></td>
-      <td><%= @list.location %></td>
-      <td><%= @list.start_date %></td>
-      <td><%= @list.end_date %></td>
-    </tr>
+  <div id="items">
+    <% i = 0 %>
+    <% j = 0 %>
 
-  </table>
+    <div id="tabs">      
+      <ul>
+       <li><a href="#tabs-1"><%= image_tag "toiletries.jpg", :class => "icons" %></a></li>
+       <li><a href="#tabs-2"><%= image_tag "clothes.jpg", :class => "icons" %></a></li>
+       <li><a href="#tabs-3"><%= image_tag "shoes.jpg", :class => "icons" %></a></li>
+       <li><a href="#tabs-4"><%= image_tag "gadgets.jpg", :class => "icons" %></a></li>
+       <li><a href="#tabs-5"><%= image_tag "weather.jpg", :class => "icons" %></a></li>
+       <li><a href="#tabs-6"><%= image_tag "travel-aid.jpg", :class => "icons" %></a></li>
+       <li><a href="#tabs-7"><%= image_tag "docs.jpg", :class => "icons" %></a></li>
+       <li><a href="#tabs-8"><%= image_tag "misc.jpg", :class => "icons" %></a></li>
+       <li><a href="#tabs-9"><%= image_tag "luggage.jpg", :class => "icons" %></a></li>
+       <li><a href="#tabs-10"><%= image_tag "my-items.jpg", :class => "icons" %></a></li>
+      </ul>
 
-  <p>Prepare to pack!</p>
-   <table class="table table-striped">
-    <tr>
-       <th>qty</th>
-      <th>item</th>
-      <th>notes</th>
-    </tr>
-      <% @list.item_lists.each do |il| %>
-      <tr>
-        <td><%= il.quantity %></td>
-        <td><%= il.name %></td>
-
-        <td><%= il.note %></td>
-       </tr>
-       
+      <% @groupedItems.each do |category, item_lists| %>
+        <div id="tabs-<%= j = j+1 %>">
+          <h3><%= category.to_s.upcase %></h3>
+            <% item_lists.each do |il| %>
+            
+              <div style="float:left; margin-right:50px;"><%= il.quantity %></div>
+              <div style="float:left;"><%= il.name %></div><br>
+              <div>notes: <%= il.note %></div>
+            <div style="margin: 20px 0; border-bottom:1px solid lightgray;"></div>
+            <% end %>
+        </div>
       <% end %>
-    </table>
 
-
-
- </div>
+    </div>
+  </div>
 
