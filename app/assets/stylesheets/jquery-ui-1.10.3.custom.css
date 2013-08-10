@@ -761,7 +761,8 @@ button.ui-button::-moz-focus-inner {
 .ui-tabs .ui-tabs-nav li.ui-state-disabled a,
 .ui-tabs .ui-tabs-nav li.ui-tabs-loading a {
 	cursor: text;
-}
+	opacity: .65;
+	filter:Alpha(Opacity=65);}
 .ui-tabs .ui-tabs-nav li a, /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active a {
 	cursor: pointer;
@@ -823,7 +824,6 @@ body .ui-tooltip {
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-	border: 1px solid #dddddd;
 	background: #f6f6f6 url(images/ui-bg_highlight-soft_100_f6f6f6_1x100.png) 50% 50% repeat-x;
 	font-weight: normal;
 	color: #41aecb;
@@ -851,11 +851,13 @@ body .ui-tooltip {
 .ui-state-hover a:visited {
 	color: #ffffff;
 	text-decoration: none;
+	opacity: .65;
+	filter:Alpha(Opacity=65);
 }
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #dddddd;
+	/*border: 1px solid #dddddd;*/
 	background: #ffffff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
 	font-weight: normal;
 	color: #ee6725;
