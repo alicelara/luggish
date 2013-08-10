@@ -41,7 +41,7 @@
         <div id="tabs-<%= j = j+1 %>">
           <h3><%= category.to_s.upcase %></h3>
             <% item_lists.each do |il| %>
-            
+              <label><input type="checkbox" name="checkbox" value="value" /> Packed </label>
               <div style="float:left; margin-right:50px;"><%= il.quantity %></div>
               <div style="float:left;"><%= il.name %></div><br>
               <div>notes: <%= il.note %></div>

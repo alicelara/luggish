@@ -7,14 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# Category.destroy_all
-# Item.destroy_all
+Category.destroy_all
+Item.destroy_all
 
 categories = ['Toiletries', 'Clothes', 'Shoes', 'Gadgets', 'Weather Related', 'Travel Aids', 'Documents & Ids', 'Miscellaneous', 'Luggage', 'My Items']
 
-# categories.each do |cat|
-# 	Category.create!(name: cat) 
-# end
+categories.each do |cat|
+	Category.create!(name: cat) 
+end
 
 
 
