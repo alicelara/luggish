@@ -16,3 +16,10 @@
 //= require cocoon
 //= require_tree .
 
+
+$(document).ready(function(){
+    $("a").click(function () {
+     $(".hide").slideToggle("slow");
+    });
+ });
+

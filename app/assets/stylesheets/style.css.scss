@@ -1,6 +1,7 @@
 @import 'bootstrap';
 @import 'bootstrap-responsive';
 
+
 $navbarBackgroundHighlight: white;
 $navbarBackground: #F06624;
 
@@ -11,6 +12,10 @@ body {
 	color: #777777;
 	font-size: 1em;
 }
+
+label{
+	font-size: 1.1em;
+}
 .navbar .brand {
 	width: 200px;
 }
@@ -19,6 +24,7 @@ body {
 }
 .item_name{
 	width: 220px;
+	margin-left:10px;
 }
 
 .icons{
@@ -33,11 +39,57 @@ body {
 	margin-top: 80px;
 }
 
+.user_form{
+	margin: 20px auto; 
+	padding: 20px 60px; 
+	background-color: #41aecb; 
+	color: #ffffff; 
+	font-weight: bold; 
+	width: 400px;
+}
+
+.newlist{
+	display: inline-block;
+
+}
+.link_forgot{
+	color: white; 
+}
+
+.link_forgot:hover{
+	color:lightblue;
+	text-decoration: none;
+}
 img a:hover{
 	background-color: #fff;
 	opacity: 0.7px;
 }
 
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button {
+-webkit-align-items: flex-start;
+text-align: center;
+cursor: default;
+color: #ffffff;
+font-weight: bold;
+padding: 2px 6px 3px;
+border: 0px outset buttonface;
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+background-color: transparent;
+box-sizing: border-box;
+}
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button .user_form {
+color: #ee6725;
+}
+input[type=checkbox] {
+float: left;
+margin-right: 10px;
+}
+
 input[type=radio]:checked + label {
-border: 1px solid blue;
+	opacity: .65;
+	filter:Alpha(Opacity=65);
 }
