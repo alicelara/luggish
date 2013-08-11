@@ -17,9 +17,11 @@
 //= require_tree .
 
 
-$(document).ready(function(){
-    $("a.toggle").click(function () {
-     $(".hide").slideToggle('slow', "swing");
+$(function(){
+    $('a.toggle').click(function(event) {
+	    $(".hide").slideToggle('slow', "swing");
+	    return false;
     });
+    
  });
 
