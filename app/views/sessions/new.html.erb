@@ -1,4 +1,5 @@
-<h1>Log in</h1>
+<div class="user_form">
+<h2>Log in</h2>
 
 <%= form_tag sessions_path do %>
 	<div class="field">
@@ -13,10 +14,13 @@
 		<%= check_box_tag :remember_me, 1, params[:remember_me] %>
 		<%= label_tag :remember_me %>
 	</div>
-	<div class="actions"><%= submit_tag "Log in" %>
+	<div class="btn "><%= submit_tag "Log in" %>
 	</div>
 	<% end %>
-
-<h1>Forgot Password?</h1>
+<%= link_to "Forgot Password?", "#", :class => "toggle link_forgot" %>
+<div class="hide">
+<h4>Forgot password?</h4>
 <%= render 'forgot_password_form' %>
+</div>
+</div>
 

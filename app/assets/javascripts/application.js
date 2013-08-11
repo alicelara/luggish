@@ -16,3 +16,12 @@
 //= require cocoon
 //= require_tree .
 
+
+$(function(){
+    $('a.toggle').click(function(event) {
+	    $(".hide").slideToggle('slow', "swing");
+	    return false;
+    });
+    
+ });
+

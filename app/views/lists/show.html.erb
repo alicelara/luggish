@@ -3,18 +3,19 @@
 <%= link_to 'Back', lists_path %>
 
 <h1>List - <%= @list.name %></h1>
-<div style="margin-bottom: 20px; ">
+<div style="height: 130px; margin: 20px">
+  <div style="margin-right: 20px; float:left;">
     <% if @list.sex == "male" %>
     <%= image_tag "male.jpg" %>
     <% else %>
     <%= image_tag "female.jpg" %>
     <% end %> 
-</div>
-<div >
-  <div>Going to - <%= @list.location %></div>
-  <div>From - <%= @list.start_date %></div>
-  <div>To - <%= @list.end_date %></div>
-
+  </div>
+  <div>
+    <div>Going to - <%= @list.location %></div>
+    <div>From - <%= @list.start_date %></div>
+    <div>To - <%= @list.end_date %></div>
+  </div>
 </div>
 
 <h3>Prepare to pack!</h3>
@@ -44,7 +45,9 @@
               <div style="float:left; margin-right:50px;"><label><input type="checkbox" name="checkbox" value="value"/><p style="margin-top:13px"> Packed </label></div>
               <div style="float:left; margin-right:50px;"><%= il.quantity %></div>
               <div style="float:left;"><%= il.name %></div><br>
+              <% if il.note.present? %>
               <div>notes: <%= il.note %></div>
+              <% end %>
             <div style="margin: 20px 0; border-bottom:1px solid lightgray;"></div>
             <% end %>
         </div>

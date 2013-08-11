@@ -1,6 +1,7 @@
 @import 'bootstrap';
 @import 'bootstrap-responsive';
 
+
 $navbarBackgroundHighlight: white;
 $navbarBackground: #F06624;
 
@@ -11,14 +12,60 @@ body {
 	color: #777777;
 	font-size: 1em;
 }
-.navbar .brand {
-	width: 200px;
+
+label{
+	font-size: 1.1em;
 }
+.nav{
+	font-weight: bold;
+	font-size: 0.8em;
+}
+.navbar .nav > li > a {
+	float: none;
+	padding: 10px 15px 10px;
+	color: #42AFCC;
+	text-decoration: none;
+	text-shadow: 0 1px 0 white;
+	margin: 50px 0 0 0;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+	color: #ffffff;
+	text-decoration: none;
+	background-color: #42AFCC;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
+	color: #ee6725;
+	font-weight: bold;
+}
+
+.navbar .brand {
+	width: 250px;
+}
+
+.navbar-inner {
+  background-color: #ffffff;
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#ffffff));
+  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffffffff', GradientType=0);
+  border: 1px solid #e0e0e0;
+  
+}
+
 .qty_size{
 	width:50px;
 }
 .item_name{
 	width: 220px;
+	margin-left:10px;
 }
 
 .icons{
@@ -33,11 +80,62 @@ body {
 	margin-top: 80px;
 }
 
+.user_form{
+	margin: 20px auto; 
+	padding: 20px 60px; 
+	background-color: #41aecb; 
+	color: #ffffff; 
+	font-weight: bold; 
+	width: 400px;
+}
+
+.newlist{
+	display: inline-block;
+
+}
+.link_forgot{
+	color: white; 
+}
+
+.link_forgot:hover{
+	color:lightblue;
+	text-decoration: none;
+}
+
 img a:hover{
 	background-color: #fff;
 	opacity: 0.7px;
 }
 
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button {
+	-webkit-align-items: flex-start;
+	text-align: center;
+	cursor: default;
+	color: #ffffff;
+	font-weight: bold;
+	padding: 2px 6px 3px;
+	border: 0px outset buttonface;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	background-color: transparent;
+	box-sizing: border-box;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button .user_form {
+	color: #ee6725;
+}
+input[type=checkbox] {
+	float: left;
+	margin-right: 10px;
+}
+input[type=radio] + label:hover {
+	opacity: .65;
+	filter:Alpha(Opacity=65);
+}
 input[type=radio]:checked + label {
-border: 1px solid blue;
+	opacity: .65;
+	filter:Alpha(Opacity=65);
 }
