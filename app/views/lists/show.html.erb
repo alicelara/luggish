@@ -3,18 +3,19 @@
 <%= link_to 'Back', lists_path %>
 
 <h1>List - <%= @list.name %></h1>
-<div style="margin-bottom: 20px; ">
+<div style="height: 130px; margin: 20px">
+  <div style="margin-right: 20px; float:left;">
     <% if @list.sex == "male" %>
     <%= image_tag "male.jpg" %>
     <% else %>
     <%= image_tag "female.jpg" %>
     <% end %> 
-</div>
-<div >
-  <div>Going to - <%= @list.location %></div>
-  <div>From - <%= @list.start_date %></div>
-  <div>To - <%= @list.end_date %></div>
-
+  </div>
+  <div>
+    <div>Going to - <%= @list.location %></div>
+    <div>From - <%= @list.start_date %></div>
+    <div>To - <%= @list.end_date %></div>
+  </div>
 </div>
 
 <h3>Prepare to pack!</h3>
