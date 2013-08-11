@@ -1,6 +1,5 @@
 <%= form_for(@list) do |f| %>
-  <div class="well">
-    <div style="float:left;">
+  <div>
     <div class="field">
       <%= f.label :list_name, :class => "span2" %>
       <%= f.text_field :name, :placeholder => "Name your list", :class => "text_fields" %>
@@ -29,55 +28,59 @@
     </div><br>
     <div class="field">          
       <%= f.label :start_date, :class => "span2"%>
-      <%= f.text_field :start_date,:id =>"dpd1" %>
+      <%= f.text_field :start_date, :id =>"dpd1" %>
     </div><br>
     <div class="field">          
       <%= f.label :end_date, :class => "span2"%>
-      <%= f.text_field :end_date,:id =>"dpd2" %>
+      <%= f.text_field :end_date, :id =>"dpd2" %>
     </div>
-  </div>
-    <!-- nested form to include items -->
-    <div style="float:left;">
 
+   <%= link_to "Update Items", "#", :class => "toggle" %>
+    </div>
+    <!-- nested form to include items -->
+    
+    <div class="hide">
       <h3>Suggested Items</h3>
       <div id="items">
            <% i = 0 %>
              <% j = 0 %>
 
-      <div id="tabs">      
-        <ul>
-         <li><a href="#tabs-1"><%= image_tag "toiletries.jpg", :class => "icons" %></a></li>
-         <li><a href="#tabs-2"><%= image_tag "clothes.jpg", :class => "icons" %></a></li>
-         <li><a href="#tabs-3"><%= image_tag "shoes.jpg", :class => "icons" %></a></li>
-         <li><a href="#tabs-4"><%= image_tag "gadgets.jpg", :class => "icons" %></a></li>
-         <li><a href="#tabs-5"><%= image_tag "weather.jpg", :class => "icons" %></a></li>
-         <li><a href="#tabs-6"><%= image_tag "travel-aid.jpg", :class => "icons" %></a></li>
-         <li><a href="#tabs-7"><%= image_tag "docs.jpg", :class => "icons" %></a></li>
-         <li><a href="#tabs-8"><%= image_tag "misc.jpg", :class => "icons" %></a></li>
-         <li><a href="#tabs-9"><%= image_tag "luggage.jpg", :class => "icons" %></a></li>
-         <li><a href="#tabs-10"><%= image_tag "my-items.jpg", :class => "icons" %></a></li>
-        </ul>
-        <% @groupedItems.each do |category, item_lists| %>
+        <div id="tabs">      
+          <ul>
+           <li><a href="#tabs-1"><%= image_tag "toiletries.jpg", :class => "icons" %></a></li>
+           <li><a href="#tabs-2"><%= image_tag "clothes.jpg", :class => "icons" %></a></li>
+           <li><a href="#tabs-3"><%= image_tag "shoes.jpg", :class => "icons" %></a></li>
+           <li><a href="#tabs-4"><%= image_tag "gadgets.jpg", :class => "icons" %></a></li>
+           <li><a href="#tabs-5"><%= image_tag "weather.jpg", :class => "icons" %></a></li>
+           <li><a href="#tabs-6"><%= image_tag "travel-aid.jpg", :class => "icons" %></a></li>
+           <li><a href="#tabs-7"><%= image_tag "docs.jpg", :class => "icons" %></a></li>
+           <li><a href="#tabs-8"><%= image_tag "misc.jpg", :class => "icons" %></a></li>
+           <li><a href="#tabs-9"><%= image_tag "luggage.jpg", :class => "icons" %></a></li>
+           <li><a href="#tabs-10"><%= image_tag "my-items.jpg", :class => "icons" %></a></li>
+          </ul>
+          <% @groupedItems.each do |category, item_lists| %>
 
-          <div id="tabs-<%= j = j+1 %>">
-            <h3><%= category.to_s.upcase %></h3>
-            <%= f.fields_for :item_lists, item_lists do |item_form| %>
-            
-              <%= render 'item_list_fields', :f => item_form %>
+            <div id="tabs-<%= j = j+1 %>">
+              <h3><%= category.to_s.upcase %></h3>
+              <%= f.fields_for :item_lists, item_lists do |item_form| %>
               
-            <% end %>
-          </div>
-        <% end %>
+                <%= render 'item_list_fields', :f => item_form %>
+                
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div style="width:40em;">
+        <h3>Add more items</h3>
+        <div class="links">
+          <%= link_to_add_association 'add my item', f, :item_lists %>  
+        </div>
       </div>
 
-      <h3>Add more items</h3>
-      <div class="links">
-        <%= link_to_add_association 'add my item', f, :item_lists %>  
+      <div class="btn" style="clear:both; margin-bottom: 30px;">
+        <%= f.submit %>
       </div>
     </div>
-
-    <div class="actions" style="clear:both">
-      <%= f.submit %></div>
-    </div>
-  </div>
-<% end %>
+    
+  <% end %>

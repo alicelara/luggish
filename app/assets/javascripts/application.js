@@ -18,8 +18,8 @@
 
 
 $(document).ready(function(){
-    $("a").click(function () {
-     $(".hide").slideToggle("slow");
+    $("a.toggle").click(function () {
+     $(".hide").slideToggle('slow', "swing");
     });
  });
 

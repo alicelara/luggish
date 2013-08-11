@@ -81,6 +81,7 @@ border-image-repeat: initial;
 background-color: transparent;
 box-sizing: border-box;
 }
+
 input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button .user_form {
 color: #ee6725;
 }
@@ -88,7 +89,10 @@ input[type=checkbox] {
 float: left;
 margin-right: 10px;
 }
-
+input[type=radio] + label:hover {
+	opacity: .65;
+	filter:Alpha(Opacity=65);
+}
 input[type=radio]:checked + label {
 	opacity: .65;
 	filter:Alpha(Opacity=65);
